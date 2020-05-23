@@ -10,8 +10,8 @@ const transporter = nodemailer.createTransport({
 exports.contactForm = (req, res) => {
     const {name,email,phone,service,userMessage} = req.body;
     const emailData = {
-        from: "nettoyageexclusif@gmail.com", // todo : add this to env
-        to: "alexbarsann@gmail.com", // todo : add this to env
+        from: process.env.EMAIL_FROM,
+        to: process.env.EMAIL_TO, 
         subject: `User Enquiry : ${process.env.APP_NAME}`,
         text: `Email Received from contact form \n Sender Name: ${name} \n Sender Email: ${email} \n Sender Phone number: ${phone} \n Selected Service: ${service} \n Sender Message: ${userMessage}`,
         html:
