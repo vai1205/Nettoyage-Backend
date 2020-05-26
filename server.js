@@ -20,6 +20,10 @@ app.use(cors({origin: process.env.CLIENT_URL}));
 // routes middleware
 app.use("/api",formRoutes)
 
+app.get("/api/mail", (req,res)=>{
+  res.redirect("https://sso.godaddy.com/?realm=pass&app=ox");
+})
+
 //port
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
